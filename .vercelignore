@@ -1,0 +1,13 @@
+# Ship only the static game frontend. Everything below is dev/build/contract tooling.
+node_modules
+tools
+tests
+contracts
+artifacts
+sdk
+server.js
+test_rounds.js
+*.md
+package.json
+package-lock.json
+.gitignore

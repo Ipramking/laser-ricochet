@@ -68,8 +68,38 @@ laser-ricochet/
 │   └── main.js               # Main game controller
 ├── tests/
 │   └── monte_carlo_rtp.js    # Monte Carlo test suite
-├── game.manifest.json        # Chain SDK Manifest
+├── game.manifest.json        # Chain SDK Manifest (CasinoGameManifestV1)
 ├── index.html                # Main game interface
 ├── style.css                 # Cyberpunk UI styling
+├── tools/                    # calibrate.js, compile.mjs, deploy.mjs, smoke.mjs
+├── artifacts/                # LaserRicochet.json (ABI + bytecode for deploy)
 └── package.json
 ```
+
+---
+
+## 🚀 Deploy the contract
+
+The contract has **no constructor arguments**, so deployment is a single transaction.
+A compiled artifact (ABI + bytecode) is checked in, so no Solidity toolchain is required:
+
+```bash
+# recompile the artifact (optional; already committed)
+npm run compile:contract
+
+# deploy to any EVM RPC
+npm run deploy:contract -- --rpc-url <RPC_URL> --private-key <0xKEY>
+#   Base Sepolia : --rpc-url https://sepolia.base.org
+#   Base mainnet : --rpc-url https://mainnet.base.org
+```
+
+The Chain.wtf platform side (whitelist on `CasinoGameFacet`, indexer + catalog entry)
+is wired by the Chain.wtf maintainers at integration time — hand them the deployed
+address + tx hash.
+
+## 🌐 Host the frontend
+
+The game is buildless static — deploy the repo root as a static site (e.g. `vercel --prod`).
+`vercel.json` sets an open CORS header on `game.manifest.json` (the host fetches it
+cross-origin); `.vercelignore` ships only the frontend files. Serve
+`game.manifest.json` from the **same origin** as `index.html`.

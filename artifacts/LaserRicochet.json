@@ -1,0 +1,460 @@
+{
+  "contractName": "LaserRicochet",
+  "compiler": "solc 0.8.30 (optimizer 200, viaIR)",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "LaserRicochet__InvalidChannel",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "LaserRicochet__InvalidMode",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "LaserRicochet__NoPlayerAction",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "sessionId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "player",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "vault",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "wagerBase",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "escrowedStake",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "reservedProfit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint32",
+              "name": "step",
+              "type": "uint32"
+            },
+            {
+              "internalType": "bytes",
+              "name": "gameData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "gameState",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct SessionContext",
+          "name": "",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "onPlayerAction",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "bytes",
+              "name": "newGameState",
+              "type": "bytes"
+            },
+            {
+              "internalType": "int256",
+              "name": "escrowDelta",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "reservedProfitDelta",
+              "type": "int256"
+            },
+            {
+              "internalType": "enum SessionPhase",
+              "name": "nextPhase",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bool",
+              "name": "requestRandomnessNow",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "payout",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct StepResult",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "sessionId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "player",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "vault",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "wagerBase",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "escrowedStake",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "reservedProfit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint32",
+              "name": "step",
+              "type": "uint32"
+            },
+            {
+              "internalType": "bytes",
+              "name": "gameData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "gameState",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct SessionContext",
+          "name": "ctx",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "randomness",
+          "type": "bytes32"
+        }
+      ],
+      "name": "onRandomness",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "bytes",
+              "name": "newGameState",
+              "type": "bytes"
+            },
+            {
+              "internalType": "int256",
+              "name": "escrowDelta",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "reservedProfitDelta",
+              "type": "int256"
+            },
+            {
+              "internalType": "enum SessionPhase",
+              "name": "nextPhase",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bool",
+              "name": "requestRandomnessNow",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "payout",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct StepResult",
+          "name": "stepResult",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "sessionId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "player",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "vault",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "wagerBase",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "escrowedStake",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "reservedProfit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint32",
+              "name": "step",
+              "type": "uint32"
+            },
+            {
+              "internalType": "bytes",
+              "name": "gameData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "gameState",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct SessionContext",
+          "name": "ctx",
+          "type": "tuple"
+        }
+      ],
+      "name": "onSessionStart",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "bytes",
+              "name": "newGameState",
+              "type": "bytes"
+            },
+            {
+              "internalType": "int256",
+              "name": "escrowDelta",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "reservedProfitDelta",
+              "type": "int256"
+            },
+            {
+              "internalType": "enum SessionPhase",
+              "name": "nextPhase",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bool",
+              "name": "requestRandomnessNow",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "payout",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct StepResult",
+          "name": "stepResult",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "wager",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "gameData",
+          "type": "bytes"
+        }
+      ],
+      "name": "quoteCaps",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "maxEscrowStake",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxReservedProfit",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "sessionId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "player",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "vault",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "wagerBase",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "escrowedStake",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "reservedProfit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint32",
+              "name": "step",
+              "type": "uint32"
+            },
+            {
+              "internalType": "bytes",
+              "name": "gameData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "gameState",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct SessionContext",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "name": "quoteForfeitPayout",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "wager",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "gameData",
+          "type": "bytes"
+        }
+      ],
+      "name": "quoteRiskParams",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "maxPayout",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "probabilityWad",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expectedPayout",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "bodyVarianceScaled",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080806040523460155761073e908161001a8239f35b5f80fdfe60806040526004361015610011575f80fd5b5f3560e01c806332824764146103605780633ae9cd1e14610280578063610a9d69146101bf5780636949b4a8146100e5578063bb81aed8146100cc5763f75eb8ce1461005b575f80fd5b346100c85760403660031901126100c85760043567ffffffffffffffff81116100c8576101209060031990360301126100c85760243567ffffffffffffffff81116100c8576100ae9036906004016103b3565b50506100b8610529565b506379f0e27360e01b5f5260045ffd5b5f80fd5b346100c8576100da36610415565b5060206040515f8152f35b346100c85760403660031901126100c85760043567ffffffffffffffff81116100c85761012060031982360301126100c8576101bb9061016360243591606461012c610529565b9360ff61271061014b61014560e487018760040161056b565b906105ac565b96909561015987868a61061b565b95869101356104d3565b04948160405195166020860152166040840152606083015260808201526080815261018f60a0826104f3565b82525f60208301525f6040830152600360608301525f608083015260a08201526040519182918261044a565b0390f35b346100c8576101bb6101d036610415565b60606101da610529565b916101eb61014560e083018361056b565b92909101356127106102056101ff85610606565b836104d3565b04818111156102755760ff9161021a916104e6565b925b81604051931660208401521660408201525f60608201525f60808201526080815261024860a0826104f3565b82525f6020830152604082015260016060820152600160808201525f60a08201526040519182918261044a565b505060ff5f9261021c565b346100c85761029a610291366103e1565b909291926105ac565b905060ff6127106102b36102ad84610606565b856104d3565b0491161580156103525765b5e620f48000905b6125808402938085046125801481151715610331576102f69115610345576102f181625d11f86104d3565b6104d3565b9064e8d4a5100082029180830464e8d4a510001490151715610331576080936127109160405194855260208501520460408301526060820152f35b634e487b7160e01b5f52601160045260245ffd5b6102f181624df8056104d3565b66016bcc41e90000906102c6565b346100c857604061038561271061038c6101ff61037c366103e1565b909591956105ac565b9050610606565b0481808211156103ab5761039f916104e6565b82519182526020820152f35b50505f61039f565b9181601f840112156100c85782359167ffffffffffffffff83116100c857602083818601950101116100c857565b9060406003198301126100c857600435916024359067ffffffffffffffff82116100c857610411916004016103b3565b9091565b60206003198201126100c8576004359067ffffffffffffffff82116100c8576101209082900360031901126100c85760040190565b602081526020825160c08284015280519182918260e08601520161010084015e5f61010082840101526020830151604083015260408301516060830152606083015160068110156104bf576101009360a09160808501526080810151151582850152015160c0830152601f8019910116010190565b634e487b7160e01b5f52602160045260245ffd5b8181029291811591840414171561033157565b9190820391821161033157565b90601f8019910116810190811067ffffffffffffffff82111761051557604052565b634e487b7160e01b5f52604160045260245ffd5b6040519060c0820182811067ffffffffffffffff821117610515576040525f60a083606081528260208201528260408201528260608201528260808201520152565b903590601e19813603018212156100c8570180359067ffffffffffffffff82116100c8576020019181360383136100c857565b359060ff821682036100c857565b919082604091810103126100c8576105cf60206105c88461059e565b930161059e565b90600760ff8416116105f757600160ff8316116105e857565b634acb4d1560e11b5f5260045ffd5b635481166560e01b5f5260045ffd5b60ff1661061457621bf0b990565b621de9b590565b9160ff916127109160405190602082019283528460f81b9060f81b1660408201528360f81b8560f81b166041820152602281526106596042826104f3565b5190200691166106b857611a7a81106106b357611be281106106ac5761264281106106a5576126f0811061069d5761270e1161069657621bf0b990565b6205adfb90565b506201470290565b50615ec490565b5061178d90565b505f90565b61198981106106b357611c3281106107015761265b81106106fa576126f381106106f25761270c116106eb57621de9b590565b6205945a90565b5062013fda90565b50615dd390565b506117819056fea2646970667358221220c8d08b1e1d316d6838f028e77bffd0b3d76939b4ad206344b101251b515a484f64736f6c634300081e0033"
+}
