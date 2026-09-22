@@ -1,0 +1,5 @@
+# Dev-only dependencies for tools/ (calibrate, compile, smoke). The game itself is
+# buildless static files (index.html, src/, style.css, game.manifest.json) with no
+# runtime deps — reinstall with: npm i --no-save solc puppeteer-core
+node_modules/
+package-lock.json

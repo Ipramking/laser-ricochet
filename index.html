@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Laser Ricochet ⚡🎯 | Chain Casino</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <!-- Chain Jam Vol. 1 widget -->
+  <script async src="https://jam.chain.wtf/widget.js"></script>
+</head>
+<body>
+  <div class="cyber-bg"></div>
+
+  <div class="game-container">
+    <!-- Header -->
+    <header class="game-header">
+      <div class="logo-group">
+        <span style="font-size: 24px;">⚡</span>
+        <h1 class="game-title">LASER RICOCHET</h1>
+        <span class="jam-badge">CHAIN JAM VOL. 1</span>
+      </div>
+
+      <div class="header-right">
+        <div class="balance-card">
+          <span class="balance-label">BALANCE</span>
+          <span class="balance-val" id="balanceDisplay">1000.00 USDC</span>
+        </div>
+        <button class="icon-btn" id="muteBtn" title="Toggle Sound">🔊</button>
+        <button class="icon-btn" id="infoBtn" title="Paytable & Rules">ℹ️</button>
+      </div>
+    </header>
+
+    <!-- Canvas Viewport -->
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <!-- Emitter Channel Selection -->
+    <div class="channel-bar">
+      <button class="ch-btn" data-col="0">CH 1</button>
+      <button class="ch-btn" data-col="1">CH 2</button>
+      <button class="ch-btn" data-col="2">CH 3</button>
+      <button class="ch-btn active" data-col="3">CH 4</button>
+      <button class="ch-btn" data-col="4">CH 5</button>
+      <button class="ch-btn" data-col="5">CH 6</button>
+      <button class="ch-btn" data-col="6">CH 7</button>
+      <button class="ch-btn" data-col="7">CH 8</button>
+    </div>
+
+    <!-- Controls Panel -->
+    <div class="controls-panel">
+      <!-- Mode Selection -->
+      <div class="control-col">
+        <span class="col-label">ENERGY MODE</span>
+        <div class="mode-toggle">
+          <button class="mode-btn active" data-mode="standard">STANDARD (96% RTP)</button>
+          <button class="mode-btn" data-mode="overcharge">⚡ OVERCHARGE</button>
+        </div>
+      </div>
+
+      <!-- Wager Controls -->
+      <div class="control-col">
+        <span class="col-label">WAGER AMOUNT (USDC)</span>
+        <div class="wager-box">
+          <div class="wager-input-wrap">
+            <input type="number" id="wagerInput" class="wager-input" value="1.00" min="0.1" max="100.0" step="0.5">
+          </div>
+          <div class="quick-wager-btns">
+            <button class="q-btn" data-action="half">½</button>
+            <button class="q-btn" data-action="double">2X</button>
+            <button class="q-btn" data-action="+1">+1</button>
+            <button class="q-btn" data-action="+5">+5</button>
+            <button class="q-btn" data-action="max">MAX</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="control-col">
+        <span class="col-label">ACTIVATE EMITTER</span>
+        <button id="fireBtn" class="fire-btn">
+          <span>⚡ FIRE LASER</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer Status / Provably Fair -->
+    <div class="footer-row">
+      <div class="history-chips" id="historyChips">
+        <span style="color: var(--text-dim); margin-right: 4px;">RECENT:</span>
+        <div class="chip win">2.05x</div>
+        <div class="chip zero">0x</div>
+        <div class="chip bigwin">10.5x</div>
+      </div>
+
+      <div class="vrf-hash-display">
+        <span>VRF SEED:</span>
+        <span class="vrf-hash-val" id="vrfHash">0x8a92...e41b</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paytable & Info Modal -->
+  <div class="modal-overlay" id="infoModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 style="color: var(--accent-cyan); font-size: 18px;">⚡ OPTICAL MATRIX PAYTABLE</h2>
+        <button class="icon-btn" id="closeModalBtn">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>Fire your high-energy laser through the quantum optics breadboard. Every round is deterministically resolved on-chain using Chain decentralized VRF with an exact <strong>96.0% RTP</strong>.</p>
+        
+        <div class="component-legend">
+          <div class="legend-item">
+            <span style="font-size: 20px;">🪞</span>
+            <div>
+              <strong>45° / 135° Mirrors</strong>
+              <div style="color: var(--text-dim); font-size: 11px;">Deflects beam trajectory by 90°</div>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span style="font-size: 20px;">💎</span>
+            <div>
+              <strong>Prism Splitter</strong>
+              <div style="color: var(--text-dim); font-size: 11px;">Splits beam into dual pathways</div>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span style="font-size: 20px;">⚡</span>
+            <div>
+              <strong>Flux Amplifier</strong>
+              <div style="color: var(--text-dim); font-size: 11px;">Boosts ray power by +1.25x (Standard) / +1.35x (Overcharge)</div>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span style="font-size: 20px;">⚛️</span>
+            <div>
+              <strong>Reactor Cores</strong>
+              <div style="color: var(--text-dim); font-size: 11px;">Pays 1x to 280x Jackpot on impact</div>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size: 12px; color: var(--text-dim);">
+          • <strong>Standard Mode</strong>: Steady hit rate (~32%), 165x top reactor tier.<br>
+          • <strong>Overcharge Mode</strong>: High volatility, 280x top reactor tier.<br>
+          • Both modes: exact <strong>96.0% RTP</strong>, round payout capped at <strong>300x</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ES Module Script -->
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

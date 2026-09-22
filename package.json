@@ -1,0 +1,14 @@
+{
+  "name": "laser-ricochet",
+  "version": "1.0.0",
+  "description": "Chain Jam Vol. 1 - Laser Ricochet arcade casino game",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve -s . -p 3000",
+    "test:rtp": "node tests/monte_carlo_rtp.js"
+  },
+  "keywords": ["casino", "chain", "web3", "arcade", "game-jam"],
+  "author": "Chain Jam Dev",
+  "license": "MIT"
+}
