@@ -4,7 +4,7 @@
 import puppeteer from 'puppeteer-core';
 
 const CHROME = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
-const URL = 'http://localhost:8080/';
+const URL = process.argv[2] || 'http://localhost:8080/';
 
 const logs = [];
 const errors = [];

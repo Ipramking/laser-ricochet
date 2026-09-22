@@ -4,7 +4,6 @@ tools
 tests
 contracts
 artifacts
-sdk
 server.js
 test_rounds.js
 *.md
